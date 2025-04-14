@@ -10,12 +10,16 @@ public class VetorNomes {
         String[] vetNomes  = new String[5];
         Double[] vetMedias = new Double[5];
         String[] vetSituacao = new String[5];
+        String[] vetResponsavel = new String[5];
         
         //Entrada de dados
         
         for (int i = 0; i < 5; i++) {
             System.out.print("Informe um nome : ");
             vetNomes[i] = sc.next();            
+            System.out.print("Informe o responsavel : ");
+            vetResponsavel[i] = sc.next();
+            
             System.out.print("Informe a media do aluno : ");
             vetMedias[i] = sc.nextDouble();
             // se media >= 7 "APROVADO" senão "REPROVADO"
@@ -39,9 +43,10 @@ public class VetorNomes {
         }
         */  
         for (int pos = 0; pos< 5; pos++) {
-            System.out.println("Aluno...: " + vetNomes[pos]);
-            System.out.println("Media...: " + vetMedias[pos]);
-            System.out.println("Situacao: " + vetSituacao[pos]);
+            System.out.println("Aluno.......: " + vetNomes[pos]);
+            System.out.println("Responsavel.: " + vetResponsavel[pos]);
+            System.out.println("Media.......: " + vetMedias[pos]);
+            System.out.println("Situacao....: " + vetSituacao[pos]);
             System.out.println("-----------------------------------");
         }
         System.out.println("");        
