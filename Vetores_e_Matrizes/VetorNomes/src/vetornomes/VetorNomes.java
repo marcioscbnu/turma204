@@ -12,6 +12,8 @@ public class VetorNomes {
         String[] vetSituacao    = new String[5];
         String[] vetResponsavel = new String[5];
         Double[][] matNotas     = new Double[5][4];
+        // variaveis de acumulação
+        double acumNotas = 0;
         
         //Entrada de dados
         
@@ -20,14 +22,21 @@ public class VetorNomes {
             vetNomes[lin] = sc.next();            
             System.out.print("Informe o responsavel : ");
             vetResponsavel[lin] = sc.next();
-            System.out.print("Informe a media do aluno : ");
-            vetMedias[lin] = sc.nextDouble();
+            
+            
+            // inicializa acum notas para o próximo aluno
+            acumNotas = 0;
+                    
             // matriz de notas
             for (int col = 0; col < 4; col++) {
                 System.out.println("Informe a nota nr " + (col+1) +
                                    " do " + vetNomes[lin]);
                 matNotas[lin][col] = sc.nextDouble();
-            }            
+                acumNotas += matNotas[lin][col];
+            }
+            
+            // calcula a média do aluno
+            vetMedias[lin] = acumNotas / 4;
             
             // se media >= 7 "APROVADO" senão "REPROVADO"
             if (vetMedias[lin] >= 7) {
@@ -37,18 +46,6 @@ public class VetorNomes {
             }
         }
 
-        //Saida de dados
-        /*
-        for (int i = 0; i < 5; i++) {
-            if (i < 4) {
-            System.out.print(vetNomes[i] + " - ");
-            System.out.print(vetMedias[i] + " - ");
-        } else {
-            System.out.print(vetNomes[i] + " - ");
-            System.out.print(vetMedias[i]);
-            }
-        }
-        */  
         for (int lin = 0; lin < 5; lin++) {
             System.out.println("Aluno.......: " + vetNomes[lin]);
             System.out.println("Responsavel.: " + vetResponsavel[lin]);
